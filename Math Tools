@@ -1,0 +1,869 @@
+BorderColor 4
+DelVar Y₁:DelVar Y₂:DelVar Y₃:DelVar Y₄:DelVar Y₅:DelVar Y₆:DelVar Y₇:DelVar Y₈:DelVar Y₉:DelVar Y₀
+BackgroundOff
+AxesOff
+FnOff 
+ClrDraw
+TextColor(BLACK
+1→N
+Lbl 10
+ClrHome
+Output(1,3,"Mathtools: Algebra one
+Output(2,1,"==========================
+Lbl M9
+Output(N+2,1," 
+1→N
+Output(3,1,"
+Output(3,2,"1:Equation Solver    
+Output(4,2,"2:Factor a Polynomial
+Output(5,2,"3:Simplify a Radical
+Output(6,2,"4:Pythagorean Theorem
+Output(7,2,"5:Quadratic Equation
+Output(8,2,"6:Linear Equations
+Output(9,2,"7:Next Page
+Output(10,2,"8:Quit                [1]
+Lbl M1
+Repeat K≠0
+getKey→K
+End
+If K=34 and N=8
+Then
+0→K
+Output(N+2,1," 
+1→N
+Output(N+2,1,"
+End
+If K=25 and N=1
+Then
+0→K
+Output(N+2,1," 
+8→N
+Output(N+2,1,"
+End
+If K=34 and N<8
+Then
+Output(N+2,1," 
+N+1→N
+Output(N+2,1,"
+End
+If K=25 and N>1
+Then
+Output(N+2,1," 
+N-1→N
+Output(N+2,1,"
+End
+If K=105 and N=7:Goto S2
+If K=105 and N=8:Goto 9
+If K=105 and N=1:Goto ES
+If K=105 and N=2:Goto 5
+If K=105 and N=3:Goto 3
+If K=105 and N=4:Goto 35
+If K=105 and N=5:Goto 11
+If K=105 and N=6:Goto LE
+If K=72:Goto S2
+If K=73:Goto 9
+If K=92:Goto ES
+If K=93:Goto 5
+If K=94:Goto 3
+If K=82:Goto 35
+If K=83:Goto 11
+If K=84:Goto LE
+If K=45 or K=22:Goto 9
+Goto M1
+Lbl S2
+Output(N+2,1," 
+1→N
+Output(3,1,"
+Output(3,4,"System of Equations
+Output(4,4,"Statistics         
+Output(5,4,"Rational Equations
+Output(6,4,"Recursive Sequence 
+Output(7,4,"Polynomial Divider
+Output(8,4,"Calculator      
+Output(9,4,"Help
+Output(10,4,"Previous Page       [2]
+Lbl M2
+Repeat K≠0
+getKey→K
+End
+If K=34 and N=8
+Then
+0→K
+Output(N+2,1," 
+1→N
+Output(N+2,1,"
+End
+If K=25 and N=1
+Then
+0→K
+Output(N+2,1," 
+8→N
+Output(N+2,1,"
+End
+If K=34 and N<8
+Then
+Output(N+2,1," 
+N+1→N
+Output(N+2,1,"
+End
+If K=25 and N>1
+Then
+Output(N+2,1," 
+N-1→N
+Output(N+2,1,"
+End
+If K=105 and N=8:Goto M9
+If K=92:Goto SY
+If K=93:Goto SA
+If K=94:Goto JK
+If K=82:Goto RA
+If K=83:Goto 34
+If K=84:Goto 6
+If K=72:Goto AB
+If K=73:Goto M9
+If K=105 and N=1:Goto SY
+If K=105 and N=2:Goto SA
+If K=105 and N=3:Goto JK
+If K=105 and N=4:Goto RA
+If K=105 and N=5:Goto 34
+If K=105 and N=6:Goto 6
+If K=105 and N=7:Goto AB
+If K=45 or K=22:Goto 9
+Goto M2
+Lbl AB
+ClrHome
+Disp "If you have any questions,
+Disp "comments or suggestions,
+Disp "Contact me here:
+Disp "TI84CalcWiz.com
+Output(10,1,"Copyright 2018
+Pause 
+Goto 10
+Lbl LE
+Menu("     Linear Equations     ","Two Points",LP,"Find Intersect",LI,"Point and Slope",LA,"Midpoint",MI,"Go back",M1
+Lbl MI
+ClrHome
+Disp "Point One
+Input "X₁=",A
+Input "Y₁=",B
+Disp "Point Two
+Input "X₂=",C
+Input "Y₂=",D
+(A+C)/2→X
+(B+D)/2→Y
+Disp "The Midpoint is at:
+Output(8,1,"X=
+Output(8,3,X
+Output(9,1,"Y=
+Output(9,3,Y
+Pause 
+Goto 10
+Lbl LP
+ClrHome
+Disp "(A,B)(C,D)"
+Prompt A,B,C,D
+(D-B)/(C-A)→S
+D-CS→I
+(A+C)/2→M
+(B+D)/2→Z
+ClrDraw
+Text(1,55,"(",A,",",B,")","(",C,",",D,")"
+Text(14,1,"Equation:"
+If I>0
+Text(28,1,"Y=",S,"X+",I
+If I<0
+Text(28,1,"Y=",S,"X-",abs(I
+If I=0
+Text(28,1,"Y=",S,"X"
+Text(42,1,"Slope:",S
+Text(56,1,"Y-Intersect:",I
+Text(70,1,"Midpoint: {",M,",",Z,"}"
+Pause 
+Goto 10
+Lbl LI
+ClrHome
+Disp "y=Ax+B"
+Disp "y=Cx+D"
+Prompt A,B,C,D
+If A=C:Then:Disp "No Solution":Pause :Goto 10:Else
+(D-B)/(A-C)→X
+AX+B→U
+ClrDraw
+Text(1,1,"Intersect: ","(",X,",",U,")"
+Pause 
+Goto 10
+Lbl LA
+ClrHome
+Disp "(A,B)
+Prompt A,B
+Input "Slope:",C
+ClrDraw:AxesOff:FnOff 
+Text(1,1,"(",A,",",B,")  Slope: ",C
+B-AC→D
+If D>0
+Text(14,1,"Equation: y=",C,"x+",D
+If D<0
+Text(14,1,"Equation: y=",C,"x-",abs(D
+If D=0
+Text(14,1,"Equation: y=",C,"x"
+Pause 
+ClrDraw
+Goto 10
+Lbl RA
+ClrHome
+Input "f(1)=",F
+Disp "Use F(N-1)
+Input "f(n)=",Str1
+Input "Find Term #:",Z
+length(Str1)→L
+inString(Str1,"F(N-1)→I
+If Z<2 or fPart(Z)≠0
+Then
+Disp "The term to find cannot
+Disp "Be less than 2 or include
+Disp "A decimal
+Pause 
+Goto 10
+End
+If I=0
+Then
+Disp "You didn't enter F(N-1) in
+Disp "your sequence!"
+Disp "ex:F(N-1)+3
+Pause 
+Goto 10
+End
+If L=I+5
+Then
+sub(Str1,1,I-1)→Str2
+Str2+"X"→Str1
+1→C
+F→X
+Goto RF
+End
+If I=1
+Then
+sub(Str1,I+6,L-(I+5))→Str3
+"X"+Str3→Str1
+Else
+sub(Str1,1,I-1)→Str2
+sub(Str1,I+6,L-(I+5))→Str3
+Str2+"X"+Str3→Str1
+End
+1→C
+F→X
+Lbl RF
+If C=Z
+Then
+Goto S
+End
+Str1→Y₁
+Y₁→X
+C+1→C
+Goto RF
+Lbl S
+Disp "
+Disp "Term
+Output(6,6,Z
+Disp "is:
+Output(7,4,X
+Pause 
+DelVar Y₁
+Goto 10
+Lbl ES
+ClrHome
+Disp "Press[2nd][math]for =
+Disp "-Enter Equation-
+Input ":",Str1
+inString(Str1,"=")→I
+If I=0:Then:Disp "There is no = in the":Pause "equation entered.":Goto 10:End
+sub(Str1,1,I-1)+"-("+sub(Str1,I+1,length(Str1)-I)+")"→Y₁
+
+Disp "X=
+Output(4,3,X
+Pause 
+DelVar Y₁
+Goto 10
+Lbl CI
+ClrHome
+Input "Initial Amount:",P
+Disp "Anual interest rate as
+
+Disp "# of times compounded
+Input "per year:",Z
+Input "# of years invested:",T
+ClrHome
+P*(1+(R/Z))^(ZT)→A
+Disp "The invested balance"
+Disp "is:"
+Output(2,4,A
+Pause 
+Goto 10
+Lbl SY
+ClrHome
+Disp "AX+BY=C
+Disp "Equation one
+Input "A:",A
+Input "B:",B
+Input "C:",C
+Disp "Equation two
+Input "A:",X
+Input "B:",Y
+Input "C:",Z
+{2,3→dim([A]
+A→[A](1,1
+B→[A](1,2
+C→[A](1,3
+X→[A](2,1
+Y→[A](2,2
+Z→[A](2,3
+rref([A])→[B]
+ClrHome
+Disp "In this system of
+Disp "Equations:
+Disp "X=
+Output(3,3,[B](1,3
+Disp "Y=
+Output(4,3,[B](2,3
+Pause 
+Goto 10
+Lbl SA
+Menu("        Statistics        ","MAD Of L₁",SB,"Standard Deviation of L₁",SC,"Compound Interest",CI,"Go Back",M2
+Lbl SC
+ClrHome
+Disp "The standard deviation is:"
+Pause stdDev(L₁
+Goto 10
+Lbl SB
+ClrHome
+mean(L₁→X
+DelVar L₆
+abs(L₁-X)→L₆
+Disp "The MAD is:
+Pause mean(L₆
+DelVar L₆
+Goto 10
+Lbl JK
+Menu("    Rational Equations    ","Work Problems",JA,"Rate Problems",JB,"Asymtote Finder",JE,"Go Back",M2
+Lbl JE
+ClrHome
+Disp "Y=(AX-B)+C
+Prompt A,B,C
+ClrHome
+Disp "X Asymtote:"
+Output(1,12,B
+Disp "Y Asymtote:"
+Output(2,12,C
+Pause 
+Goto 10
+Lbl JB
+Menu("Rate Problems","Traveling Toward",JD,"Traveling Same Direction",JC,"Go Back",10
+Lbl JD
+ClrHome
+Disp "Thing one is going this"
+Input "many units fast:",A
+Disp "Thing two is going this"
+Input "many units fast:",B
+Disp "On a path that is this"
+Input "many units long:",C
+ClrHome
+Disp "So they will pass after"
+A+B→A
+C/A→A
+Disp A
+Pause "Units of time"
+Goto 10
+Lbl JC
+ClrHome
+Disp "First thing leaves at"
+Input "this speed:",A
+Disp "Second thing leaves 
+Disp "this many units later"
+Input "(Use same unit!):",B
+Input "At this speed:",C
+B*­1→B
+C*B→D
+A-C→A
+D/A→A
+ClrHome
+Disp "So they will pass after"
+Disp A
+Pause "Units of time"
+Goto 10
+Lbl JA
+ClrHome
+Disp "Person A does"
+Input "this many things(jobs):",A
+Input "In this amount of time:",B
+Disp "Person B does"
+Input "this many things(jobs):",C
+Input "In this amount of time:",D
+If fPart(B)≠0 or fPart(D)≠0
+Then
+ClrHome
+Disp "Incompatible with decimals"
+Pause 
+Goto 10
+End
+ClrHome
+lcm(B,D)→X
+A/B→Z
+C/D→Y
+Z*X→Z
+Y*X→Y
+Z+Y→Z
+X/Z→X
+Disp "So,if they worked together
+Disp "it would take"
+Disp X
+Disp "units of time to do one"
+Pause 
+Goto 10
+Lbl 34
+Menu("    Polynomial Divider    ","X^4",91,"X^3",92,"X^2",93,"Go Back",M2)
+Lbl 91
+ClrHome
+Disp "AX^4+BX+CX²+DX+E"
+Input "A= ",A
+Input "B= ",B
+Input "C= ",C
+Input "D= ",D
+Input "E= ",E
+Disp "ALL OVER X+F"
+Input "F= ",F
+ClrDraw
+­F→F
+(D+(ZF))→Y
+(B+(FA))→W
+(C+(WF))→V
+(D+(VF))→U
+(E+(UF))→T
+Y→K
+W→L
+V→M
+U→Z
+T→O
+Text(1,1,A,"X+",W,"X²+",V,"X+",U
+Text(20,1,"r",T)
+Pause 
+Goto 10
+End
+Lbl 92
+ClrHome
+Disp "AX+BX²+CX+D"
+Input "A= ",A
+Input "B= ",B
+Input "C= ",C
+Input "D= ",D
+Disp "ALL OVER X+E"
+Input "E= ",E
+ClrDraw
+­E→E
+(B+(AE))→Z
+(C+(ZE))→Y
+(D+(YE))→W
+Y→S
+Text(1,1,A,"X²+",Z,"X+",Y," r",W)
+Pause 
+ClrHome
+Goto 10
+End
+Lbl 93
+ClrHome
+Disp "AX²+BX+C"
+Input "A= ",A
+Input "B= ",B
+Input "C= ",C
+Disp "ALL OVER X+D"
+Input "D= ",D
+ClrDraw
+­D→D
+(B+(AD))→Z
+(C+(ZD))→Y
+Z→T
+Y→P
+Text(1,1,A,"X+",Z," r",Y)
+Pause 
+Goto 10
+End
+Lbl 35
+Menu("    Pythagorean Theorem   ","Missing Length",1,"Right Tri Checker",2,"Distance Calculator",4,"Go Back",M1
+Lbl 2
+ClrHome
+0→X
+Disp "A^2+B^2=C^2"
+Prompt A,B,C
+If ((A)^2)+((B)^2)=((C)^2)
+Then
+Disp "Yes, this is
+Disp "a right triangle"
+Else
+Disp "No, this is not"
+Disp "a right triangle"
+End
+Pause 
+Goto 10
+Lbl 1
+ClrHome
+Disp "A^2+B^2=C^2"
+Disp "Enter 0 for unknown length"
+Disp "-Right triangles-"
+Prompt A,B,C
+0→X
+If A≠0 and B≠0 and C≠0
+Then
+ClrHome
+Pause "Error:No Var=0"
+Goto 10
+End
+If A=0
+Then
+B^2→B
+C^2→C
+A^2→A
+C-B→C
+√(C→C
+Goto P9
+End
+If B=0
+Then
+A^2→A
+B^2→B
+C^2→C
+C-A→C
+√(C→C
+Lbl P9
+Disp "The missing length is:
+Output(7,23,C
+Pause 
+Goto 10
+End
+If C=0
+Then
+A^2→A
+B^2→B
+C^2→C
+A+B→C
+√(C→C
+Goto P9
+End
+Lbl 3
+ClrHome
+Disp "-No variables-"
+Input "√",X
+Lbl GT
+If fPart(X)≠0:Then:Disp "Error:Decimals are not":Pause "Compatible":Goto 10:End
+iPart(√(X)+1)→A
+Repeat fPart(X/A^2)=0
+A-1→A
+End
+ClrDraw
+Text(1,1,A,"√(",X/A^2,")"," or ",√(X
+Pause 
+Goto 10
+Lbl 4
+ClrHome
+Disp "(X1,Y1) and (X2,Y2)
+Disp "Enter the Points"
+Input "X1:",A
+Input "Y1:",B
+Input "X2:",C
+Input "Y2:",D
+(C-A)^2+(D-B)^2→X
+If fPart(X)=0:Then:Goto GT:Else
+Disp "Distance=
+Output(7,10,√(X
+Pause 
+End
+Goto 10
+Lbl 5
+DelVar L₁:DelVar L₂:DelVar L₃:DelVar L₄:DelVar L₅
+ClrDraw:ClrHome
+Input "Highest Exponent:",D
+0→dim(L₁
+For(I,D,0,­1
+2(D-I+1
+If Ans>10
+10
+Output(Ans,1,"x^
+Output(Ans,3,I
+Disp "
+Input ":",C
+C→L₁(D-I+1
+End
+D+1→D
+0→C
+0→R
+0→Z
+0→θ
+While not(L₁(D
+D-1→D
+Z+1→Z
+End
+If 0>L₁(1
+Then
+Text(R,C,"­
+C+6→C
+­L₁→L₁
+End
+L₁(1→A
+For(I,2,dim(L₁
+gcd(A,abs(L₁(I→A
+End
+If A
+L₁/A→L₁
+If A>1
+Then
+Text(R,C,A
+C+8+8int(log(A→C
+End
+If Z
+Then
+Text(R,C,"X
+C+8→C
+If Z=2
+Then
+Text(R,C,"²
+C+8→C
+End
+If Z>2
+Then
+Text(R,C,"^
+Text(R,C+8,Z
+C+16+8int(log(Z→C
+End
+End
+If D=1
+Goto B3
+Lbl B0
+1→Q
+1→I
+For(J,1,2
+abs(L₁(I→A
+{1→L₂
+2→B
+While 2<Anot(fPart(A/2
+Lbl B1
+A/B→A
+If fPart(max(L₂)/B
+L₂→L₄
+augment(L₄,BL₂→L₂
+End
+For(G,B+(B=2),√(A),2)
+If fPart(A/G
+End
+G→B
+A→G
+If B²≤A
+Goto B1
+augment(L₂,AL₂→L₂
+If I=1
+L₂→L₃
+D→I
+End
+0→dim(L₄
+For(I,1,dim(L₂
+For(J,1,dim(L₃
+L₂(I)/L₃(J→L₄(1+dim(L₄
+End
+End
+0→dim(L₂
+0→dim(L₃
+SortA(L₄
+0→dim(L₅
+L₄(1→L₅(1
+For(I,2,dim(L₄
+If L₄(I-1)≠L₄(I
+L₄(I→L₅(1+dim(L₅
+End
+0→dim(L₄
+dim(L₅→B
+For(I,max(1,int(B/2)),B
+L₅(I→L₄(1+dim(L₄
+B-I-1→J
+If J>0 and J≠I
+L₅(J→L₄(1+dim(L₄
+End
+0→dim(L₅
+1→A
+Lbl B2
+1→B
+Repeat B=2
+D→E
+L₁(1→L₂(1
+For(I,2,D
+L₁(I)+L₂(I-1)L₄(A→L₂(I
+End
+If not(L₂(D
+Then
+abs(L₄(A→Y
+1→N
+While Y>­7N
+N/Y→N
+fPart(Y→Y
+End
+If 1>fPart(N
+iPart(N→N
+round(N,0→N
+round(NL₄(A),0→F
+Text(R,C,"(
+C+6→C
+If N>1
+Then
+Text(R,C,N
+C+8+8int(log(N→C
+End
+Text(R,C,"X
+If θ
+Text(R,C,"X²
+If θ
+C+8→C
+C+8→C
+Text(R,C,"-
+If F<0
+Text(R,C,"+
+C+8→C
+If C≥220
+DelVar CR+14→R
+Text(R,C,abs(F
+C+8+8int(log(abs(F→C
+Text(R,C,")
+C+6→C
+D-1→D
+D→dim(L₂
+L₂/N→L₁
+NQ→Q
+End
+If D=E or D=1
+2→B
+End
+If A≤dim(L₄
+Then
+If 0>L₄(A
+Then
+A+1→A
+Else
+­L₄(A→L₄(A
+End
+End
+If D>1 and Q<10 and A≤dim(L₄
+Goto B2
+If D>1 and A≤dim(L₄
+Goto B0
+θ+1→θ
+If D>1 and θ=1
+Then
+For(I,D,2,­1
+If L₁(I) and fPart((I-1)/2
+3→θ
+End
+If θ=1
+Then
+{L₁(1→L₂
+For(I,3,D,2
+L₁(I→L₂(1+dim(L₂
+End
+L₂→L₁
+0→dim(L₂
+dim(L₁→D
+End
+End
+If D>1 and θ=1
+Goto B0
+If D>1 and θ=2
+Then
+{L₁(1),0→L₂
+For(I,2,D
+augment(L₂,augment({L₁(I)},{0→L₂
+End
+dim(L₂)-1→dim(L₂
+L₂→L₁
+0→dim(L₂
+dim(L₁→D
+End
+If D>1
+Then
+Text(R,C,"(
+C+6→C
+For(I,1,dim(L₁
+D-I→J
+L₁(I→A
+If A
+Then
+If A<0 and I=1
+Then
+Text(R,C,"­
+C+8→C
+End
+If I>1
+Then
+Text(R,C,"-
+If 0<A
+Text(R,C,"+
+C+8→C
+End
+If C≥200
+DelVar CR+14→R
+If 1<abs(A) or not(J
+Then
+Text(R,C,abs(A
+C+8+8int(log(abs(A→C
+End
+If J
+Then
+Text(R,C,"X
+C+8→C
+End
+If J=2
+Then
+Text(R,C,"²
+C+8→C
+End
+If J>2
+Then
+Text(R,C,"^
+Text(R,C+8,J
+C+16+8int(log(J→C
+End
+End
+End
+Text(R,C,")
+End
+Lbl B3
+Pause 
+SetUpEditor 
+Output(1,1,"
+Goto 10
+Lbl 6
+ClrHome
+Disp "Enter 0 to Exit"
+Lbl 48
+Input "",Str1
+Str1→Y₁
+Y₁→X
+DelVar Y₁
+If Str1="0":Goto 10
+Disp X
+If fPart(X)≠0:Then:Disp "or":Disp XFD:End
+Disp "……………………………………………………………………
+Goto 48
+Lbl 11
+a+b
+ClrHome
+Disp "Enter coefficients
+Prompt A,B,C
+B^2-4AC→D
+ClrHome
+Output(1,1,"X=
+Output(1,3,(­B+√(D))/(2A)
+Output(2,1,"and X=
+Output(2,7,(­B-√(D))/(2A)
+Pause 
+Goto 10
+Lbl 9
+DelVar ADelVar BDelVar CDelVar DDelVar EDelVar FDelVar GDelVar HDelVar IDelVar JDelVar KDelVar LDelVar MDelVar NDelVar ODelVar PDelVar QDelVar RDelVar SDelVar TDelVar UDelVar VDelVar WDelVar XDelVar YDelVar ZDelVar Str1
+BorderColor 1
+AxesOn 
+ClrHome
+Disp "Mathtools: Algebra One"
+"TI84CalcWiz.com"→Str0
